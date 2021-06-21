@@ -44,12 +44,6 @@ public class UsuarioRestController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<Object> insertarLogin(@RequestBody Usuario usuario) {
-		Usuario getUser = dao.findByUsuarioAndPassword("ADMIN", "admin");
-		if (getUser.getUsuario().equals("ADMIN")) {
-			usuario.setId(1);
-		}else {
-			usuario.setId(2);
-		}
 		service.login(usuario);
 		return new ResponseEntity<>(service.findById(usuario.getId()), HttpStatus.OK);
     }

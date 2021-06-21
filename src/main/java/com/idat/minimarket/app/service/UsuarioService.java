@@ -27,11 +27,13 @@ public class UsuarioService {
 	}
 	
 	public void  login(Usuario usuario) {
-		
-		if (usuario.getUsuario()=="ADMIN") {
-			findById(1);			
+		Usuario getUser = dao.findByUsuarioAndPassword(usuario.getUsuario(), usuario.getPassword());
+		if (getUser.getUsuario().equals("ADMIN")) {
+			usuario.setId(1);
+			findById(usuario.getId());	
 		}else {
-			rptaAndMessage();
+			usuario.setId(2);
+			findById(usuario.getId());	
 		}
 	}
 }
