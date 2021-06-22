@@ -96,6 +96,14 @@ public class Producto implements Serializable {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "{id:" + id + ", nombre:" + nombre + ", precio:" + precio + ", cantidad:" + cantidad
+				+ ", marca:" + marca + ", url:" + url + "}";
+	}
 	
 	
 	

@@ -1,6 +1,7 @@
 package com.idat.minimarket.app.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -18,7 +19,20 @@ public class ProductoService {
 	private ProductoDao dao;
 	
 	public List<Producto> findAll(){
-		return (List<Producto>) dao.findAll();
+		return  (List<Producto>) dao.findAll();
+	}
+	
+	public List<Object[]> obtenerProductoArray(){
+        return dao.obtenerProductos();
+    }
+	
+	public Producto buscarPorId(Integer id) {
+		Optional<Producto> producto = dao.findById(id);
+		
+		if (producto.isPresent())
+   		  return dao.findById(id).get();
+		else
+			return null;
 	}
 
 }

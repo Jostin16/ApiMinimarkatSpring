@@ -27,13 +27,12 @@ public class UsuarioService {
 	}
 	
 	public void  login(Usuario usuario) {
-		Usuario getUser = dao.findByUsuarioAndPassword(usuario.getUsuario(), usuario.getPassword());
-		if (getUser.getUsuario().equals("ADMIN")) {
-			usuario.setId(1);
-			findById(usuario.getId());	
-		}else {
+		Usuario getUser=dao.findByUsuarioAndPassword(usuario.getUsuario(),usuario.getPassword());
+		System.out.println(usuario.getUsuario()+" / "+usuario.getPassword());
+		if(getUser==null){
 			usuario.setId(2);
-			findById(usuario.getId());	
+		}else{
+			usuario.setId(1);
 		}
 	}
 }

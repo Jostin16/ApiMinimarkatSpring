@@ -81,5 +81,9 @@ public class Promociones implements Serializable {
 		this.url = url;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "{id:" + id + ", nombre_producto:" + nombre_producto + ", precio_normal:" + precio_normal
+				+ ", precio_oferta:" + precio_oferta + ", url:" + url + "}";
+	}
 }

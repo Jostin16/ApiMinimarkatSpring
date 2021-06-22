@@ -20,5 +20,13 @@ public class ComentarioService {
 	public List<Comentarios> findAll(){
 		return (List<Comentarios>) dao.findAll();
 	}
+	
+	public Comentarios crear(Comentarios comentarios) {
+		return dao.save(comentarios);
+	}
+	
+	public List<Object[]> obtenerComentariosArray(){
+        return dao.obtenerComentarios();
+    }
 
 }

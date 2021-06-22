@@ -77,6 +77,12 @@ public class Comentarios implements Serializable {
 	public void setUrlFoto(String urlFoto) {
 		this.urlFoto = urlFoto;
 	}
+
+	@Override
+	public String toString() {
+		return "{id:" + id + ", descripcion:" + descripcion + ", nombre_usuario:" + nombre_usuario
+				+ ", fecha:" + fecha + ", urlFoto:" + urlFoto + "}";
+	}
 	
 	
 

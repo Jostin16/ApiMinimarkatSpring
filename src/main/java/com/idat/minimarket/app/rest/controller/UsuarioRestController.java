@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-
-import com.idat.minimarket.app.dao.UsuarioDao;
 import com.idat.minimarket.app.model.Usuario;
 import com.idat.minimarket.app.service.UsuarioService;
 
@@ -25,9 +23,6 @@ public class UsuarioRestController {
 	
 	@Autowired
 	private final UsuarioService service;
-	
-	@Autowired
-	private UsuarioDao dao;
 	
 	public UsuarioRestController(UsuarioService service) {
 		this.service = service;
