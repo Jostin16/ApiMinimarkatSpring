@@ -1,7 +1,6 @@
 package com.idat.minimarket.app.model;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
 
 
@@ -9,11 +8,11 @@ import javax.persistence.*;
 @Table(name = "productos")
 public class Producto implements Serializable {
 
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
 	@Id
 	private Integer id;
 	@Column
@@ -85,8 +84,6 @@ public class Producto implements Serializable {
 		this.marca = marca;
 	}
 
-
-
 	public String getUrl() {
 		return url;
 	}
@@ -96,15 +93,5 @@ public class Producto implements Serializable {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
-
-
-	@Override
-	public String toString() {
-		return "{id:" + id + ", nombre:" + nombre + ", precio:" + precio + ", cantidad:" + cantidad
-				+ ", marca:" + marca + ", url:" + url + "}";
-	}
-	
-	
 	
 }

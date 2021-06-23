@@ -38,4 +38,14 @@ public class PromocionesService {
 		else
 			return null;
 	}
+	
+	public Promociones update(Promociones promociones) {
+		Promociones actualPromociones = dao.findById(promociones.getId()).get();
+		actualPromociones.setId(promociones.getId());
+		actualPromociones.setNombre_producto(promociones.getNombre_producto());
+		actualPromociones.setPrecio_normal(promociones.getPrecio_normal());
+		actualPromociones.setPrecio_oferta(promociones.getPrecio_oferta());
+		actualPromociones.setUrl(promociones.getUrl());
+		return dao.save(actualPromociones);
+	}
 }
