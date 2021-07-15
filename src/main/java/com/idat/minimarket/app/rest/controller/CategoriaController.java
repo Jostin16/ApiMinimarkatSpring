@@ -28,6 +28,7 @@ public class CategoriaController {
 	}
 
 	@GetMapping(value = "/{id}")
+	
 	public 	Categoria buscarPorId(@PathVariable("id") Integer id) {
 		Categoria categoria = service.buscarPorId(id);
 

@@ -1,81 +1,38 @@
 package com.idat.minimarket.app.model;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "usuarios")
-public class Usuario implements Serializable {
+public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(length = 20)
+    private String email;
+    @Column(length = 20)
+    private String password;
+    @Column
+    private boolean vigencia;
+    @OneToOne
+    private Cliente cliente;
 
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	private Integer id;
-	
-	private String nombre;
-	
-	private String apellidos;
-	
-	private String edad;
-	
-	private String email;
-	
-	private String password;
-	
-	private Boolean rpta = true;
-	
-	private String mensaje;
-	
-	private String usuario;
-	
-	public Usuario() {
-		// TODO Auto-generated constructor stub
-	}
+    public int getId() {
+        return id;
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellidos() {
-		return apellidos;
-	}
-
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
-	public String getEdad() {
-		return edad;
-	}
-
-	public void setEdad(String edad) {
-		this.edad = edad;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
+    public String getPassword() {
 		return password;
 	}
 
@@ -83,28 +40,19 @@ public class Usuario implements Serializable {
 		this.password = password;
 	}
 
-	public Boolean getRpta() {
-		return rpta;
-	}
+	public boolean isVigencia() {
+        return vigencia;
+    }
 
-	public void setRpta(Boolean rpta) {
-		this.rpta = rpta;
-	}
+    public void setVigencia(boolean vigencia) {
+        this.vigencia = vigencia;
+    }
 
-	public String getMensaje() {
-		return mensaje;
-	}
+    public Cliente getCliente() {
+        return cliente;
+    }
 
-	public void setMensaje(String mensaje) {
-		this.mensaje = mensaje;
-	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-	
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }
