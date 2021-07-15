@@ -19,9 +19,6 @@ public class ProductoService {
 		return  (List<Producto>) dao.findAll();
 	}
 	
-	public String[] obtenerProductoArray(){
-        return dao.obtenerProductos();
-    }
 	
 	
 	public Producto buscarPorId(Integer id) {
@@ -33,4 +30,7 @@ public class ProductoService {
 			return null;
 	}
 
+	public List<Producto> findSomeProductos(Integer id){
+		return (List<Producto>) dao.findSomeProducts(id);
+	}
 }

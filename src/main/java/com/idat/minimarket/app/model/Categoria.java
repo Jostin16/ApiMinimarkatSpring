@@ -1,11 +1,17 @@
 package com.idat.minimarket.app.model;
  
 import java.io.Serializable;
- 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
  
 @Entity
 @Table(name = "categorias")
@@ -22,6 +28,9 @@ public class Categoria implements Serializable {
     private String descripcion;
     @Column
     private String url;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoria",fetch=FetchType.LAZY)
+    @JsonBackReference(value="prod_cat")
+    private List<Producto> productoList;
  
     public Categoria() {
         super();
@@ -57,5 +66,14 @@ public class Categoria implements Serializable {
     public void setUrl(String url) {
         this.url = url;
     }
+
+	public List<Producto> getProductoList() {
+		return productoList;
+	}
+
+	public void setProductoList(List<Producto> productoList) {
+		this.productoList = productoList;
+	}
+    
 
 }

@@ -8,23 +8,22 @@ import javax.persistence.*;
 @Table(name = "productos")
 public class Producto implements Serializable {
 
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	private Integer id;
-	@Column
+	@Column(name = "nombre")
 	private String nombre;
-	@Column
+	@Column(name = "precio")
 	private Double precio;
-	@Column
+	@Column(name = "cantidad")
 	private Integer cantidad;
-	@Column
+	@Column(name = "marca")
 	private String marca;
-	@Column
+	@Column(name = "url")
 	private String url;
+	@JoinColumn(name = "categoria", referencedColumnName = "id")
+	@ManyToOne
+	private Categoria categoria;
 	
 	public Producto() {
 		// TODO Auto-generated constructor stub
@@ -88,10 +87,18 @@ public class Producto implements Serializable {
 		return url;
 	}
 
-
-
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	
+	
 	
 }
