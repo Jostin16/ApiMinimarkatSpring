@@ -21,8 +21,8 @@ public class UsuarioRestController {
     @PostMapping("/login")
     public GenericResponse<Usuario> login(HttpServletRequest request){
         String email = request.getParameter("email");
-        String contrasenia = request.getParameter("password");
-        return this.service.login(email, contrasenia);
+        String password = request.getParameter("password");
+        return this.service.login(email, password);
     }
 
 }
