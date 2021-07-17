@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @SpringBootApplication
 @CrossOrigin
-public class MinimarketApiSpringApplication {
+public class FerreteriaApiSpringApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MinimarketApiSpringApplication.class, args);
+		SpringApplication.run(FerreteriaApiSpringApplication.class, args);
 	}
 
 }
